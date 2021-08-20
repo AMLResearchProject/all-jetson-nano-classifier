@@ -1,0 +1,46 @@
+
+sudo apt install docker.io
+
+sudo apt-cache show nvidia-jetpack
+sudo nvpmodel -m 0
+sudo jetson_clocks
+
+sudo docker pull nvcr.io/nvidia/l4t-tensorflow:r32.5.0-tf2.3-py3
+sudo docker run -it  --name all-jetson-nano-base --rm --runtime nvidia --network host -v /home/jetson-nano/ALL-Jetson-Nano-Classifier:/ALL-Jetson-Nano-Classifier nvcr.io/nvidia/l4t-tensorflow:r32.5.0-tf2.3-py3
+
+apt update && apt -y install cmake libprotobuf-dev protobuf-compiler
+pip3 install scipy
+pip3 install scikit-build
+pip3 install  scikit-learnx
+pip3 install opencv-python
+pip3 install pandas
+pip3 install mlxtend
+apt install nano
+
+sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+echo 'export LANG=en_US.UTF-8' >> ~/.bashrc
+echo 'export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1' >> ~/.bashrc
+source ~/.bashrc
+
+export LANG=en_US.UTF-8
+pip3 install jsonpickle
+pip3 install flask
+pip3 install tf2onnx
+pip3 install onnx
+pip3 install pycuda
+
+apt purge cmake && \
+wget https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz && \
+tar zxvf cmake-3.13.4.tar.gz && \
+cd cmake-3.13.4 && \
+./bootstrap && \
+make && \
+make install && \
+cd ../..
+
+docker commit -m "Your Message" -a "Your Name" all-jetson-nano YourDockerHubUser/all-jetson-nano:v1
+
+sudo docker run -it --name all-jetson-nano --rm --runtime nvidia --network host -v /home/YourUser/ALL-Jetson-Nano-Classifier:/ALL-Jetson-Nano-Classifier YourDockerHubUser/all-jetson-nano:v1
