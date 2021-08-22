@@ -65,54 +65,54 @@ _________________________________________________________________
 Finally the application will start processing the test images and the results will be displayed in the console. The first classification will take longer due to loading the required dynamic libraries.
 
 ```
-2021-08-19 21:21:54,042 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
-2021-08-19 21:21:54.781830: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
-2021-08-19 21:21:56.736191: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
-2021-08-19 21:22:04,620 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 10.574294567108154 seconds.
-2021-08-19 21:22:05,944 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
-2021-08-19 21:22:06,134 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.18299126625061035 seconds.
-2021-08-19 21:22:07,205 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
-2021-08-19 21:22:07,382 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16392922401428223 seconds.
-2021-08-19 21:22:07,852 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
-2021-08-19 21:22:08,032 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16694879531860352 seconds.
-2021-08-19 21:22:08,107 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
-2021-08-19 21:22:08,271 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.1616969108581543 seconds.
-2021-08-19 21:22:08,807 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
-2021-08-19 21:22:08,995 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17544174194335938 seconds.
-2021-08-19 21:22:09,192 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
-2021-08-19 21:22:09,371 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16634845733642578 seconds.
-2021-08-19 21:22:09,806 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
-2021-08-19 21:22:09,980 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16352033615112305 seconds.
-2021-08-19 21:22:10,259 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
-2021-08-19 21:22:10,441 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.17132163047790527 seconds.
-2021-08-19 21:22:10,650 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
-2021-08-19 21:22:10,822 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.1612401008605957 seconds.
-2021-08-19 21:22:10,886 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
-2021-08-19 21:22:11,051 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16300010681152344 seconds.
-2021-08-19 21:22:11,115 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
-2021-08-19 21:22:11,278 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16106534004211426 seconds.
-2021-08-19 21:22:11,500 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
-2021-08-19 21:22:11,684 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17350363731384277 seconds.
-2021-08-19 21:22:11,748 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
-2021-08-19 21:22:11,912 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16186809539794922 seconds.
-2021-08-19 21:22:12,151 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
-2021-08-19 21:22:12,322 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16080045700073242 seconds.
-2021-08-19 21:22:12,839 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
-2021-08-19 21:22:13,020 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.17079424858093262 seconds.
-2021-08-19 21:22:13,434 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
-2021-08-19 21:22:14,971 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 1.5258052349090576 seconds.
-2021-08-19 21:22:15,034 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
-2021-08-19 21:22:15,199 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16217803955078125 seconds.
-2021-08-19 21:22:16,319 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
-2021-08-19 21:22:16,492 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.1624619960784912 seconds.
-2021-08-19 21:22:18,036 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
-2021-08-19 21:22:18,223 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17438983917236328 seconds.
-2021-08-19 21:22:18,224 - Classifier - INFO - Images Classified: 20
-2021-08-19 21:22:18,224 - Classifier - INFO - True Positives: 10
-2021-08-19 21:22:18,224 - Classifier - INFO - False Positives: 0
-2021-08-19 21:22:18,225 - Classifier - INFO - True Negatives: 10
-2021-08-19 21:22:18,225 - Classifier - INFO - False Negatives: 0
-2021-08-19 21:22:18,225 - Classifier - INFO - Total Time Taken: 15.103600025177002
+2021-08-22 18:01:15,260 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
+2021-08-22 18:01:16.234253: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-08-22 18:01:17.260057: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 18:01:26,193 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 10.915842771530151 seconds.
+2021-08-22 18:01:28,123 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
+2021-08-22 18:01:28,798 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.6637485027313232 seconds.
+2021-08-22 18:01:31,314 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
+2021-08-22 18:01:31,490 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16409754753112793 seconds.
+2021-08-22 18:01:32,955 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
+2021-08-22 18:01:33,130 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16338133811950684 seconds.
+2021-08-22 18:01:33,202 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
+2021-08-22 18:01:33,367 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16285347938537598 seconds.
+2021-08-22 18:01:35,027 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
+2021-08-22 18:01:35,211 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17293715476989746 seconds.
+2021-08-22 18:01:35,485 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
+2021-08-22 18:01:35,659 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16274356842041016 seconds.
+2021-08-22 18:01:36,228 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
+2021-08-22 18:01:36,401 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16106271743774414 seconds.
+2021-08-22 18:01:36,629 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
+2021-08-22 18:01:36,818 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.1783151626586914 seconds.
+2021-08-22 18:01:37,055 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
+2021-08-22 18:01:37,236 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.170271635055542 seconds.
+2021-08-22 18:01:37,300 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
+2021-08-22 18:01:37,464 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.16158628463745117 seconds.
+2021-08-22 18:01:37,531 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
+2021-08-22 18:01:37,706 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.17259979248046875 seconds.
+2021-08-22 18:01:38,329 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
+2021-08-22 18:01:38,527 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.1852095127105713 seconds.
+2021-08-22 18:01:38,590 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
+2021-08-22 18:01:38,753 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.1616823673248291 seconds.
+2021-08-22 18:01:38,971 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
+2021-08-22 18:01:39,144 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.16157913208007812 seconds.
+2021-08-22 18:01:39,495 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
+2021-08-22 18:01:39,677 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.1709306240081787 seconds.
+2021-08-22 18:01:39,900 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
+2021-08-22 18:01:41,829 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 1.917875051498413 seconds.
+2021-08-22 18:01:41,892 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
+2021-08-22 18:01:42,057 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.1628572940826416 seconds.
+2021-08-22 18:01:44,639 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
+2021-08-22 18:01:44,828 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17487740516662598 seconds.
+2021-08-22 18:01:45,801 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
+2021-08-22 18:01:45,987 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.17336750030517578 seconds.
+2021-08-22 18:01:45,987 - Classifier - INFO - Images Classified: 20
+2021-08-22 18:01:45,988 - Classifier - INFO - True Positives: 10
+2021-08-22 18:01:45,988 - Classifier - INFO - False Positives: 0
+2021-08-22 18:01:45,988 - Classifier - INFO - True Negatives: 10
+2021-08-22 18:01:45,989 - Classifier - INFO - False Negatives: 0
+2021-08-22 18:01:45,989 - Classifier - INFO - Total Time Taken: 16.357818841934204
 ```
 
 &nbsp;
@@ -128,55 +128,55 @@ python3 classifier.py classify_tfrt
 You will see the following output:
 
 ``` bash
-2021-08-19 21:23:17.557074: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1428] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 375 MB memory) -> physical GPU (device: 0, name: NVIDIA Tegra X1, pci bus id: 0000:00:00.0, compute capability: 5.3)
-2021-08-19 21:23:22,277 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
-2021-08-19 21:23:22.403990: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
-2021-08-19 21:23:24.297541: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
-2021-08-19 21:23:29,946 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 7.66000771522522 seconds.
-2021-08-19 21:23:31,574 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
-2021-08-19 21:23:31,589 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.007614850997924805 seconds.
-2021-08-19 21:23:33,488 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
-2021-08-19 21:23:33,506 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006653547286987305 seconds.
-2021-08-19 21:23:33,825 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
-2021-08-19 21:23:33,844 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006745576858520508 seconds.
-2021-08-19 21:23:33,915 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
-2021-08-19 21:23:33,924 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0067136287689208984 seconds.
-2021-08-19 21:23:34,398 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
-2021-08-19 21:23:34,417 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006788492202758789 seconds.
-2021-08-19 21:23:34,708 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
-2021-08-19 21:23:34,726 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006501197814941406 seconds.
-2021-08-19 21:23:34,928 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
-2021-08-19 21:23:34,946 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006418704986572266 seconds.
-2021-08-19 21:23:35,234 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
-2021-08-19 21:23:35,251 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006302595138549805 seconds.
-2021-08-19 21:23:35,519 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
-2021-08-19 21:23:35,535 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006386280059814453 seconds.
-2021-08-19 21:23:35,599 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
-2021-08-19 21:23:35,607 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0062999725341796875 seconds.
-2021-08-19 21:23:35,669 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
-2021-08-19 21:23:35,677 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.00655674934387207 seconds.
-2021-08-19 21:23:35,983 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
-2021-08-19 21:23:36,000 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006490468978881836 seconds.
-2021-08-19 21:23:36,066 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
-2021-08-19 21:23:36,075 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006487846374511719 seconds.
-2021-08-19 21:23:36,384 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
-2021-08-19 21:23:36,401 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006212949752807617 seconds.
-2021-08-19 21:23:36,629 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
-2021-08-19 21:23:36,647 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006224155426025391 seconds.
-2021-08-19 21:23:36,874 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
-2021-08-19 21:23:36,892 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006279706954956055 seconds.
-2021-08-19 21:23:36,954 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
-2021-08-19 21:23:36,962 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006190299987792969 seconds.
-2021-08-19 21:23:37,256 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
-2021-08-19 21:23:37,276 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006523609161376953 seconds.
-2021-08-19 21:23:37,482 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
-2021-08-19 21:23:37,499 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.00617218017578125 seconds.
-2021-08-19 21:23:37,500 - Classifier - INFO - Images Classified: 20
-2021-08-19 21:23:37,500 - Classifier - INFO - True Positives: 10
-2021-08-19 21:23:37,500 - Classifier - INFO - False Positives: 0
-2021-08-19 21:23:37,501 - Classifier - INFO - True Negatives: 10
-2021-08-19 21:23:37,501 - Classifier - INFO - False Negatives: 0
-2021-08-19 21:23:37,501 - Classifier - INFO - Total Time Taken: 7.7835705280303955
+2021-08-22 18:02:50,101 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
+2021-08-22 18:02:50.198938: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-08-22 18:02:51.947017: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 18:02:58,320 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 8.210758924484253 seconds.
+2021-08-22 18:02:58,938 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
+2021-08-22 18:02:58,951 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.008095026016235352 seconds.
+2021-08-22 18:03:04,524 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
+2021-08-22 18:03:04,545 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.007901668548583984 seconds.
+2021-08-22 18:03:04,830 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
+2021-08-22 18:03:04,849 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006689786911010742 seconds.
+2021-08-22 18:03:04,920 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
+2021-08-22 18:03:04,929 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.007235288619995117 seconds.
+2021-08-22 18:03:05,379 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
+2021-08-22 18:03:05,398 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.007020711898803711 seconds.
+2021-08-22 18:03:05,880 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
+2021-08-22 18:03:05,897 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006475210189819336 seconds.
+2021-08-22 18:03:06,688 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
+2021-08-22 18:03:06,705 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006563425064086914 seconds.
+2021-08-22 18:03:07,274 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
+2021-08-22 18:03:07,292 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006519794464111328 seconds.
+2021-08-22 18:03:07,509 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
+2021-08-22 18:03:07,527 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006318807601928711 seconds.
+2021-08-22 18:03:07,590 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
+2021-08-22 18:03:07,598 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006488323211669922 seconds.
+2021-08-22 18:03:07,660 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
+2021-08-22 18:03:07,668 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006326436996459961 seconds.
+2021-08-22 18:03:07,966 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
+2021-08-22 18:03:07,983 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006209611892700195 seconds.
+2021-08-22 18:03:08,046 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
+2021-08-22 18:03:08,054 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006255626678466797 seconds.
+2021-08-22 18:03:08,268 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
+2021-08-22 18:03:08,290 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006395816802978516 seconds.
+2021-08-22 18:03:08,586 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
+2021-08-22 18:03:08,604 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006394624710083008 seconds.
+2021-08-22 18:03:08,799 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
+2021-08-22 18:03:08,817 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006200551986694336 seconds.
+2021-08-22 18:03:08,879 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
+2021-08-22 18:03:08,888 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.006281137466430664 seconds.
+2021-08-22 18:03:09,188 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
+2021-08-22 18:03:09,205 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.006270170211791992 seconds.
+2021-08-22 18:03:09,413 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
+2021-08-22 18:03:09,430 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0063779354095458984 seconds.
+2021-08-22 18:03:09,430 - Classifier - INFO - Images Classified: 20
+2021-08-22 18:03:09,431 - Classifier - INFO - True Positives: 10
+2021-08-22 18:03:09,431 - Classifier - INFO - False Positives: 0
+2021-08-22 18:03:09,431 - Classifier - INFO - True Negatives: 10
+2021-08-22 18:03:09,431 - Classifier - INFO - False Negatives: 0
+2021-08-22 18:03:09,432 - Classifier - INFO - Total Time Taken: 8.33677887916565
+
 ```
 
 &nbsp;
@@ -192,59 +192,59 @@ python3 classifier.py classify_tensorrt
 You will see the following output:
 
 ``` bash
-2021-08-19 21:25:47,794 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
-2021-08-19 21:25:57,528 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 9.695297002792358 seconds.
-2021-08-19 21:25:58,770 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
-2021-08-19 21:25:58,891 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.05570673942565918 seconds.
-2021-08-19 21:25:59,799 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
-2021-08-19 21:25:59,825 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.01838541030883789 seconds.
-2021-08-19 21:26:00,039 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
-2021-08-19 21:26:00,064 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.017393112182617188 seconds.
-2021-08-19 21:26:00,174 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
-2021-08-19 21:26:00,192 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.016171693801879883 seconds.
-2021-08-19 21:26:06,638 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
-2021-08-19 21:26:06,665 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.017331838607788086 seconds.
-2021-08-19 21:26:07,826 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
-2021-08-19 21:26:07,854 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.018476009368896484 seconds.
-2021-08-19 21:26:16,488 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
-2021-08-19 21:26:16,516 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.017465829849243164 seconds.
-2021-08-19 21:26:24,054 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
-2021-08-19 21:26:24,082 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.01739645004272461 seconds.
-2021-08-19 21:26:26,183 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
-2021-08-19 21:26:26,208 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.014073848724365234 seconds.
-2021-08-19 21:26:26,272 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
-2021-08-19 21:26:26,292 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.018465757369995117 seconds.
-2021-08-19 21:26:26,355 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
-2021-08-19 21:26:26,375 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.018265962600708008 seconds.
-2021-08-19 21:26:28,109 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
-2021-08-19 21:26:28,137 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.017232894897460938 seconds.
-2021-08-19 21:26:28,208 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
-2021-08-19 21:26:28,223 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.013829946517944336 seconds.
-2021-08-19 21:26:29,144 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
-2021-08-19 21:26:29,172 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.01685953140258789 seconds.
-2021-08-19 21:26:30,215 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
-2021-08-19 21:26:30,243 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.018213987350463867 seconds.
-2021-08-19 21:26:31,108 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
-2021-08-19 21:26:31,136 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.016917705535888672 seconds.
-2021-08-19 21:26:31,199 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
-2021-08-19 21:26:31,216 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.015204191207885742 seconds.
-2021-08-19 21:26:33,055 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
-2021-08-19 21:26:33,083 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.01775836944580078 seconds.
-2021-08-19 21:26:34,294 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
-2021-08-19 21:26:34,322 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.017148733139038086 seconds.
-2021-08-19 21:26:34,322 - Classifier - INFO - Images Classified: 20
-2021-08-19 21:26:34,322 - Classifier - INFO - True Positives: 10
-2021-08-19 21:26:34,323 - Classifier - INFO - False Positives: 0
-2021-08-19 21:26:34,323 - Classifier - INFO - True Negatives: 10
-2021-08-19 21:26:34,323 - Classifier - INFO - False Negatives: 0
-2021-08-19 21:26:34,324 - Classifier - INFO - Total Time Taken: 10.057595014572144
+2021-08-22 18:04:13,896 - Classifier - INFO - Loaded test image model/data/test/Im041_0.jpg
+2021-08-22 18:04:13,941 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.03255295753479004 seconds.
+2021-08-22 18:04:14,115 - Classifier - INFO - Loaded test image model/data/test/Im028_1.jpg
+2021-08-22 18:04:14,123 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.002234220504760742 seconds.
+2021-08-22 18:04:14,829 - Classifier - INFO - Loaded test image model/data/test/Im053_1.jpg
+2021-08-22 18:04:14,842 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0021958351135253906 seconds.
+2021-08-22 18:04:15,070 - Classifier - INFO - Loaded test image model/data/test/Im047_0.jpg
+2021-08-22 18:04:15,083 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0021576881408691406 seconds.
+2021-08-22 18:04:15,157 - Classifier - INFO - Loaded test image model/data/test/Im026_1.jpg
+2021-08-22 18:04:15,161 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0022268295288085938 seconds.
+2021-08-22 18:04:15,739 - Classifier - INFO - Loaded test image model/data/test/Im106_0.jpg
+2021-08-22 18:04:15,752 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0021431446075439453 seconds.
+2021-08-22 18:04:16,051 - Classifier - INFO - Loaded test image model/data/test/Im088_0.jpg
+2021-08-22 18:04:16,064 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.002117633819580078 seconds.
+2021-08-22 18:04:16,453 - Classifier - INFO - Loaded test image model/data/test/Im074_0.jpg
+2021-08-22 18:04:16,466 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.002123594284057617 seconds.
+2021-08-22 18:04:16,924 - Classifier - INFO - Loaded test image model/data/test/Im057_1.jpg
+2021-08-22 18:04:16,940 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0021796226501464844 seconds.
+2021-08-22 18:04:17,393 - Classifier - INFO - Loaded test image model/data/test/Im101_0.jpg
+2021-08-22 18:04:17,406 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0023069381713867188 seconds.
+2021-08-22 18:04:17,473 - Classifier - INFO - Loaded test image model/data/test/Im024_1.jpg
+2021-08-22 18:04:17,477 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0021584033966064453 seconds.
+2021-08-22 18:04:17,539 - Classifier - INFO - Loaded test image model/data/test/Im006_1.jpg
+2021-08-22 18:04:17,543 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0021212100982666016 seconds.
+2021-08-22 18:04:17,806 - Classifier - INFO - Loaded test image model/data/test/Im035_0.jpg
+2021-08-22 18:04:17,818 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0021283626556396484 seconds.
+2021-08-22 18:04:17,889 - Classifier - INFO - Loaded test image model/data/test/Im031_1.jpg
+2021-08-22 18:04:17,893 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.0021491050720214844 seconds.
+2021-08-22 18:04:18,190 - Classifier - INFO - Loaded test image model/data/test/Im069_0.jpg
+2021-08-22 18:04:18,203 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.002172708511352539 seconds.
+2021-08-22 18:04:18,922 - Classifier - INFO - Loaded test image model/data/test/Im063_1.jpg
+2021-08-22 18:04:18,935 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.002173900604248047 seconds.
+2021-08-22 18:04:19,488 - Classifier - INFO - Loaded test image model/data/test/Im060_1.jpg
+2021-08-22 18:04:19,501 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.002492666244506836 seconds.
+2021-08-22 18:04:19,565 - Classifier - INFO - Loaded test image model/data/test/Im020_1.jpg
+2021-08-22 18:04:19,569 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly detected (True Positive) in 0.002119779586791992 seconds.
+2021-08-22 18:04:20,562 - Classifier - INFO - Loaded test image model/data/test/Im095_0.jpg
+2021-08-22 18:04:20,575 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0021810531616210938 seconds.
+2021-08-22 18:04:21,296 - Classifier - INFO - Loaded test image model/data/test/Im099_0.jpg
+2021-08-22 18:04:21,308 - Classifier - INFO - Acute Lymphoblastic Leukemia correctly not detected (True Negative) in 0.0022246837615966797 seconds.
+2021-08-22 18:04:21,308 - Classifier - INFO - Images Classified: 20
+2021-08-22 18:04:21,309 - Classifier - INFO - True Positives: 10
+2021-08-22 18:04:21,309 - Classifier - INFO - False Positives: 0
+2021-08-22 18:04:21,309 - Classifier - INFO - True Negatives: 10
+2021-08-22 18:04:21,310 - Classifier - INFO - False Negatives: 0
+2021-08-22 18:04:21,310 - Classifier - INFO - Total Time Taken: 0.07416033744812012
 ```
 
 &nbsp;
 
 # Conclusion
 
-Here we can see that optimizing our Tensorflow model using TFRT improves our classification by around 8 seconds which is a considerable improvement. When comparing the performance of the TFRT model with the TensorRT model however, we see an increase in classification time of around 3 seconds, this is something that should be investigated.
+Here we can see that optimizing our Tensorflow model using TFRT improves our classification by around 8 seconds which is a considerable improvement. When comparing the performance of the TFRT model with the TensorRT model we see an improvement of more than 8 seconds, demonstrating the pure power of Tensorrt and the possibilities it brings to AI on the edge.
 
 This completes our tutorial for now. You have created a Tensorflow model for Acute Lymphoblastic Leukemia classification, converted it to TFRT and ONNX formats, and converted the ONNX model to TensorRT format, then ran each model on your desktop/laptop device and the NVIDIA Jetson Nano.
 
