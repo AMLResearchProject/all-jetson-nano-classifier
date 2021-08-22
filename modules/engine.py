@@ -1,13 +1,17 @@
 """ TensorRT engine
+
 Provides the TensorRT engine functionality.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,13 +19,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 Contributors:
 - Adam Milton-Barker
+
 Reference: https://github.com/jkjung-avt/keras_imagenet/
 """
 
 import cv2
 import numpy as np
+import pycuda.autoinit
+import pycuda.driver as cuda
 import os.path
 import tensorrt as trt
 import time
@@ -67,9 +75,8 @@ class engine():
             shape = list(network.get_input(0).shape)
             shape[0] = 1
             network.get_input(0).shape = shape
+            self.helpers.logger.info("Engine build complete.")
             return builder.build_cuda_engine(network)
-
-        self.helpers.logger.info("Engine build complete.")
 
     def save_engine(self, engine):
         """ Saves the TensorRT engine. """
@@ -86,6 +93,13 @@ class engine():
             engine_data = f.read()
         self.engine = trt.Runtime(TRT_LOGGER).deserialize_cuda_engine(engine_data)
 
+        self.host_input, self.cuda_input, self.host_output, self.cuda_output = self.init_trt_buffers(
+            cuda)
+        self.stream = cuda.Stream()
+
+        self.context = self.engine.create_execution_context()
+        self.context.set_binding_shape(0, (1, 100, 100, 3))
+
         self.helpers.logger.info("Engine load complete.")
 
     def init_trt_buffers(self, cuda):
@@ -97,36 +111,24 @@ class engine():
         size = trt.volume((1, 2)) * self.engine.max_batch_size
         host_output = cuda.pagelocked_empty(size, np.float32)
         cuda_output = cuda.mem_alloc(host_output.nbytes)
-        return host_input, cuda_input, host_output, cuda_output
 
         self.helpers.logger.info("Engine buffers initialized.")
+
+        return host_input, cuda_input, host_output, cuda_output
 
     def predict(self, img):
         """ Inference the image with TensorRT engine."""
 
-        import pycuda.autoinit
-        import pycuda.driver as cuda
+        np.copyto(self.host_input, img.ravel())
+        cuda.memcpy_htod_async(self.cuda_input, self.host_input, self.stream)
 
-        with open(self.tensorrt_model_path, 'rb') as f, trt.Runtime(TRT_LOGGER) as runtime:
-            engine = runtime.deserialize_cuda_engine(f.read())
+        self.context.execute_async_v2(bindings=[int(self.cuda_input), int(self.cuda_output)],
+                                      stream_handle=self.stream.handle)
 
-        host_input, cuda_input, host_output, cuda_output = self.init_trt_buffers(
-            cuda)
-        stream = cuda.Stream()
+        cuda.memcpy_dtoh_async(self.host_output, self.cuda_output, self.stream)
+        self.stream.synchronize()
 
-        context = self.engine.create_execution_context()
-        context.set_binding_shape(0, (1, 100, 100, 3))
-
-        np.copyto(host_input, img.ravel())
-        cuda.memcpy_htod_async(cuda_input, host_input, stream)
-
-        context.execute_async_v2(bindings=[int(cuda_input), int(cuda_output)],
-                                 stream_handle=stream.handle)
-
-        cuda.memcpy_dtoh_async(host_output, cuda_output, stream)
-        stream.synchronize()
-
-        return host_output
+        return self.host_output
 
     def reshape(self, img):
         """ Reshapes an image. """
@@ -139,6 +141,7 @@ class engine():
 
     def test(self):
         """TensorRT test mode
+
         Loops through the test directory and classifies the images
         using the TensorRT model.
         """
