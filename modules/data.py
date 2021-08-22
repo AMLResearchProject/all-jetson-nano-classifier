@@ -43,135 +43,135 @@ from modules.AbstractData import AbstractData
 from modules.augmentation import augmentation
 
 class data(AbstractData):
-	""" AI Model Data Class.
+    """ AI Model Data Class.
 
-	Provides the AI Model with the required required data
-	processing functionality.
-	"""
+    Provides the AI Model with the required required data
+    processing functionality.
+    """
 
-	def process(self):
-		""" Processes the images. """
+    def process(self):
+        """ Processes the images. """
 
-		aug = augmentation(self.helpers)
+        aug = augmentation(self.helpers)
 
-		data_dir = pathlib.Path(self.confs["data"]["train_dir"])
-		data = list(data_dir.glob(
-			'*' + self.confs["data"]["file_type"]))
+        data_dir = pathlib.Path(self.confs["data"]["train_dir"])
+        data = list(data_dir.glob(
+            '*' + self.confs["data"]["file_type"]))
 
-		count = 0
-		neg_count = 0
-		pos_count = 0
+        count = 0
+        neg_count = 0
+        pos_count = 0
 
-		augmented_data = []
-		self.labels = []
-		temp = []
+        augmented_data = []
+        self.labels = []
+        temp = []
 
-		for rimage in data:
-			fpath = str(rimage)
-			fname = os.path.basename(rimage)
-			label = 0 if "_0" in fname else 1
+        for rimage in data:
+            fpath = str(rimage)
+            fname = os.path.basename(rimage)
+            label = 0 if "_0" in fname else 1
 
-			# Resize Image
-			image = self.resize(fpath, self.dim)
+            # Resize Image
+            image = self.resize(fpath, self.dim)
 
-			if image.shape[2] == 1:
-				image = np.dstack(
-					[image, image, image])
+            if image.shape[2] == 1:
+                image = np.dstack(
+                    [image, image, image])
 
-			temp.append(image.astype(np.float32)/255.)
+            temp.append(image.astype(np.float32)/255.)
 
-			self.data.append(image.astype(np.float32)/255.)
-			self.labels.append(label)
+            self.data.append(image.astype(np.float32)/255.)
+            self.labels.append(label)
 
-			# Grayscale
-			self.data.append(aug.grayscale(image))
-			self.labels.append(label)
+            # Grayscale
+            self.data.append(aug.grayscale(image))
+            self.labels.append(label)
 
-			# Histogram Equalization
-			self.data.append(aug.equalize_hist(image))
-			self.labels.append(label)
+            # Histogram Equalization
+            self.data.append(aug.equalize_hist(image))
+            self.labels.append(label)
 
-			# Reflection
-			horizontal, vertical = aug.reflection(image)
-			self.data.append(horizontal)
-			self.labels.append(label)
-			self.data.append(vertical)
-			self.labels.append(label)
+            # Reflection
+            horizontal, vertical = aug.reflection(image)
+            self.data.append(horizontal)
+            self.labels.append(label)
+            self.data.append(vertical)
+            self.labels.append(label)
 
-			# Gaussian Blur
-			self.data.append(aug.gaussian(image))
-			self.labels.append(label)
+            # Gaussian Blur
+            self.data.append(aug.gaussian(image))
+            self.labels.append(label)
 
-			# Translation
-			self.data.append(aug.translate(image))
-			self.labels.append(label)
+            # Translation
+            self.data.append(aug.translate(image))
+            self.labels.append(label)
 
-			# Shear
-			self.data.append(aug.shear(image))
-			self.labels.append(label)
+            # Shear
+            self.data.append(aug.shear(image))
+            self.labels.append(label)
 
-			# Rotation
-			for i in range(0, self.helpers.confs["data"]["rotations"]):
-				self.data.append(aug.rotation(image))
-				self.labels.append(label)
-				if "_0" in fname:
-					neg_count += 1
-				else:
-					pos_count += 1
-				count += 1
+            # Rotation
+            for i in range(0, self.helpers.confs["data"]["rotations"]):
+                self.data.append(aug.rotation(image))
+                self.labels.append(label)
+                if "_0" in fname:
+                    neg_count += 1
+                else:
+                    pos_count += 1
+                count += 1
 
-			if "_0" in fname:
-				neg_count += 8
-			else:
-				pos_count += 8
-			count += 8
+            if "_0" in fname:
+                neg_count += 8
+            else:
+                pos_count += 8
+            count += 8
 
-		self.shuffle()
-		self.convert_data()
-		self.encode_labels()
+        self.shuffle()
+        self.convert_data()
+        self.encode_labels()
 
-		self.helpers.logger.info("Augmented data size: " + str(count))
-		self.helpers.logger.info("Negative data size: " + str(neg_count))
-		self.helpers.logger.info("Positive data size: " + str(pos_count))
-		self.helpers.logger.info("Augmented data shape: " + str(self.data.shape))
-		self.helpers.logger.info("Labels shape: " + str(self.labels.shape))
+        self.helpers.logger.info("Augmented data size: " + str(count))
+        self.helpers.logger.info("Negative data size: " + str(neg_count))
+        self.helpers.logger.info("Positive data size: " + str(pos_count))
+        self.helpers.logger.info("Augmented data shape: " + str(self.data.shape))
+        self.helpers.logger.info("Labels shape: " + str(self.labels.shape))
 
-		self.X_train_arr = np.asarray(temp)
+        self.X_train_arr = np.asarray(temp)
 
-		self.get_split()
+        self.get_split()
 
-	def convert_data(self):
-		""" Converts the training data to a numpy array. """
+    def convert_data(self):
+        """ Converts the training data to a numpy array. """
 
-		self.data = np.array(self.data)
+        self.data = np.array(self.data)
 
-	def encode_labels(self):
-		""" One Hot Encodes the labels. """
+    def encode_labels(self):
+        """ One Hot Encodes the labels. """
 
-		encoder = OneHotEncoder(categories='auto')
+        encoder = OneHotEncoder(categories='auto')
 
-		self.labels = np.reshape(self.labels, (-1, 1))
-		self.labels = encoder.fit_transform(self.labels).toarray()
+        self.labels = np.reshape(self.labels, (-1, 1))
+        self.labels = encoder.fit_transform(self.labels).toarray()
 
-	def shuffle(self):
-		""" Shuffles the data and labels. """
+    def shuffle(self):
+        """ Shuffles the data and labels. """
 
-		self.data, self.labels = shuffle(
-			self.data, self.labels, random_state=self.seed)
+        self.data, self.labels = shuffle(
+            self.data, self.labels, random_state=self.seed)
 
-	def get_split(self):
-		""" Splits the data and labels creating training and validation datasets. """
+    def get_split(self):
+        """ Splits the data and labels creating training and validation datasets. """
 
-		self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-			self.data, self.labels, test_size=self.helpers.confs["data"]["split"],
-			random_state=self.seed)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+            self.data, self.labels, test_size=self.helpers.confs["data"]["split"],
+            random_state=self.seed)
 
-		self.helpers.logger.info("Training data: " + str(self.X_train.shape))
-		self.helpers.logger.info("Training labels: " + str(self.y_train.shape))
-		self.helpers.logger.info("Validation data: " + str(self.X_test.shape))
-		self.helpers.logger.info("Validation labels: " + str(self.y_test.shape))
+        self.helpers.logger.info("Training data: " + str(self.X_train.shape))
+        self.helpers.logger.info("Training labels: " + str(self.y_train.shape))
+        self.helpers.logger.info("Validation data: " + str(self.X_test.shape))
+        self.helpers.logger.info("Validation labels: " + str(self.y_test.shape))
 
-	def resize(self, path, dim):
-		""" Resizes an image to the provided dimensions (dim). """
+    def resize(self, path, dim):
+        """ Resizes an image to the provided dimensions (dim). """
 
-		return cv2.resize(cv2.imread(path), (dim, dim))
+        return cv2.resize(cv2.imread(path), (dim, dim))

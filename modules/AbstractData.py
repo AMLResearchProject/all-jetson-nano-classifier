@@ -35,7 +35,6 @@ Contributors:
 import cv2
 import pathlib
 import random
-import os
 
 from numpy.random import seed
 
@@ -43,73 +42,68 @@ from abc import ABC, abstractmethod
 
 
 class AbstractData(ABC):
-	""" AI Model Data Abstract Class.
+    """ AI Model Data Abstract Class.
 
-	Provides the AI Model with the required required data
-	processing functionality.
-	"""
+    Provides the AI Model with the required required data
+    processing functionality.
+    """
 
-	def __init__(self, helpers):
-		"Initializes the AbstractData object."
-		super().__init__()
+    def __init__(self, helpers):
+        "Initializes the AbstractData object."
+        super().__init__()
 
-		self.helpers = helpers
-		self.confs = self.helpers.confs
+        self.helpers = helpers
+        self.confs = self.helpers.confs
 
-		self.seed = self.confs["data"]["seed"]
-		self.dim = self.confs["data"]["dim"]
+        self.seed = self.confs["data"]["seed"]
+        self.dim = self.confs["data"]["dim"]
 
-		seed(self.seed)
-		random.seed(self.seed)
+        seed(self.seed)
+        random.seed(self.seed)
 
-		self.data = []
-		self.labels = []
+        self.data = []
+        self.labels = []
 
-		self.helpers.logger.info("Data class initialization complete.")
+        self.helpers.logger.info("Data class initialization complete.")
 
-	def remove_testing(self):
-		""" Removes the testing images from the dataset. """
+    def remove_testing(self):
+        """ Removes the testing images from the dataset. """
 
-		for img in self.confs["data"]["test_data"]:
-			original = "model/data/train/"+img
-			destination = "model/data/test/"+img
+        for img in self.confs["data"]["test_data"]:
+            original = "model/data/train/"+img
+            destination = "model/data/test/"+img
+            pathlib.Path(original).rename(destination)
+            self.helpers.logger.info(original + " moved to " + destination)
+            cv2.imwrite(destination, cv2.resize(cv2.imread(destination),
+                                                (self.dim, self.dim)))
+            self.helpers.logger.info("Resized " + destination)
 
-			if not os.path.isfile(original):
-				self.helpers.logger.error("Original " + destination + " does not exist, please ensure all data is in the model/data/train directory")
-				exit()
+    @abstractmethod
+    def process(self):
+        """ Processes the images. """
+        pass
 
-			pathlib.Path(original).rename(destination)
-			self.helpers.logger.info(original + " moved to " + destination)
-			cv2.imwrite(destination, cv2.resize(cv2.imread(destination),
-												(self.dim, self.dim)))
-			self.helpers.logger.info("Resized " + destination)
+    @abstractmethod
+    def encode_labels(self):
+        """ One Hot Encodes the labels. """
+        pass
 
-	@abstractmethod
-	def process(self):
-		""" Processes the images. """
-		pass
+    @abstractmethod
+    def convert_data(self):
+        """ Converts the training data to a numpy array. """
+        pass
 
-	@abstractmethod
-	def encode_labels(self):
-		""" One Hot Encodes the labels. """
-		pass
+    @abstractmethod
+    def shuffle(self):
+        """ Shuffles the data and labels. """
+        pass
 
-	@abstractmethod
-	def convert_data(self):
-		""" Converts the training data to a numpy array. """
-		pass
+    @abstractmethod
+    def get_split(self):
+        """ Splits the data and labels creating training and validation datasets. """
+        pass
 
-	@abstractmethod
-	def shuffle(self):
-		""" Shuffles the data and labels. """
-		pass
-
-	@abstractmethod
-	def get_split(self):
-		""" Splits the data and labels creating training and validation datasets. """
-		pass
-
-	@abstractmethod
-	def resize(self, path, dim):
-		""" Resizes an image to the provided dimensions (dim). """
-		pass
+    @abstractmethod
+    def resize(self, path, dim):
+        """ Resizes an image to the provided dimensions (dim). """
+        pass

@@ -40,49 +40,49 @@ from modules.model import model
 
 
 class AbstractClassifier(ABC):
-	""" Abstract class representing an AI Classifier.
+    """ Abstract class representing an AI Classifier.
 
-	Represents an AI Classifier. AI Classifiers process data using AI
-	models. Based on HIAS AI Agents for future compatibility with
-	the HIAS Network.
-	"""
+    Represents an AI Classifier. AI Classifiers process data using AI
+    models. Based on HIAS AI Agents for future compatibility with
+    the HIAS Network.
+    """
 
-	def __init__(self):
-		""" Initializes the AbstractClassifier object. """
-		super().__init__()
+    def __init__(self):
+        """ Initializes the AbstractClassifier object. """
+        super().__init__()
 
-		self.helpers = helpers("Classifier")
-		self.confs = self.helpers.confs
-		self.model_type = None
+        self.helpers = helpers("Classifier")
+        self.confs = self.helpers.confs
+        self.model_type = None
 
-		self.helpers.logger.info("Classifier initialization complete.")
+        self.helpers.logger.info("Classifier initialization complete.")
 
-	@abstractmethod
-	def init_model(self):
-		""" Loads the model class """
-		pass
+    @abstractmethod
+    def init_model(self):
+        """ Loads the model class """
+        pass
 
-	@abstractmethod
-	def train(self):
-		""" Creates & trains the model. """
-		pass
+    @abstractmethod
+    def train(self):
+        """ Creates & trains the model. """
+        pass
 
-	@abstractmethod
-	def load_model(self):
-		""" Loads the AI model """
-		pass
+    @abstractmethod
+    def load_model(self):
+        """ Loads the AI model """
+        pass
 
-	@abstractmethod
-	def inference(self):
-		""" Loads model and classifies test data """
-		pass
+    @abstractmethod
+    def inference(self):
+        """ Loads model and classifies test data """
+        pass
 
-	@abstractmethod
-	def server(self):
-		""" Loads the API server """
-		pass
+    @abstractmethod
+    def server(self):
+        """ Loads the API server """
+        pass
 
-	@abstractmethod
-	def inference_http(self):
-		""" Classifies test data via HTTP requests """
-		pass
+    @abstractmethod
+    def inference_http(self):
+        """ Classifies test data via HTTP requests """
+        pass
