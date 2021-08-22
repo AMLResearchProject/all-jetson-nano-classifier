@@ -37,63 +37,63 @@ from datetime import datetime
 
 
 class helpers():
-	""" Helper Class
+    """ Helper Class
 
-	Configuration and logging functions.
-	"""
+    Configuration and logging functions.
+    """
 
-	def __init__(self, ltype, log=True):
-		""" Initializes the Helpers Class. """
+    def __init__(self, ltype, log=True):
+        """ Initializes the Helpers Class. """
 
-		# Loads system configs
-		self.confs = {}
-		self.load_confs()
+        # Loads system configs
+        self.confs = {}
+        self.load_confs()
 
-		# Sets system logging
-		self.logger = logging.getLogger(ltype)
-		self.logger.setLevel(logging.INFO)
+        # Sets system logging
+        self.logger = logging.getLogger(ltype)
+        self.logger.setLevel(logging.INFO)
 
-		formatter = logging.Formatter(
-			'%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-		allLogHandler = handlers.TimedRotatingFileHandler(
-			os.path.dirname(os.path.abspath(__file__)) + '/../logs/all.log', when='H', interval=1, backupCount=0)
-		allLogHandler.setLevel(logging.INFO)
-		allLogHandler.setFormatter(formatter)
+        allLogHandler = handlers.TimedRotatingFileHandler(
+            os.path.dirname(os.path.abspath(__file__)) + '/../logs/all.log', when='H', interval=1, backupCount=0)
+        allLogHandler.setLevel(logging.INFO)
+        allLogHandler.setFormatter(formatter)
 
-		errorLogHandler = handlers.TimedRotatingFileHandler(
-			os.path.dirname(os.path.abspath(__file__)) + '/../logs/error.log', when='H', interval=1, backupCount=0)
-		errorLogHandler.setLevel(logging.ERROR)
-		errorLogHandler.setFormatter(formatter)
+        errorLogHandler = handlers.TimedRotatingFileHandler(
+            os.path.dirname(os.path.abspath(__file__)) + '/../logs/error.log', when='H', interval=1, backupCount=0)
+        errorLogHandler.setLevel(logging.ERROR)
+        errorLogHandler.setFormatter(formatter)
 
-		warningLogHandler = handlers.TimedRotatingFileHandler(
-			os.path.dirname(os.path.abspath(__file__)) + '/../logs/warning.log', when='H', interval=1, backupCount=0)
-		warningLogHandler.setLevel(logging.WARNING)
-		warningLogHandler.setFormatter(formatter)
+        warningLogHandler = handlers.TimedRotatingFileHandler(
+            os.path.dirname(os.path.abspath(__file__)) + '/../logs/warning.log', when='H', interval=1, backupCount=0)
+        warningLogHandler.setLevel(logging.WARNING)
+        warningLogHandler.setFormatter(formatter)
 
-		consoleHandler = logging.StreamHandler(sys.stdout)
-		consoleHandler.setFormatter(formatter)
+        consoleHandler = logging.StreamHandler(sys.stdout)
+        consoleHandler.setFormatter(formatter)
 
-		self.logger.addHandler(allLogHandler)
-		self.logger.addHandler(errorLogHandler)
-		self.logger.addHandler(warningLogHandler)
-		self.logger.addHandler(consoleHandler)
+        self.logger.addHandler(allLogHandler)
+        self.logger.addHandler(errorLogHandler)
+        self.logger.addHandler(warningLogHandler)
+        self.logger.addHandler(consoleHandler)
 
-		if log is True:
-			self.logger.info("Helpers class initialization complete.")
+        if log is True:
+            self.logger.info("Helpers class initialization complete.")
 
-	def load_confs(self):
-		""" Load the configuration. """
+    def load_confs(self):
+        """ Load the configuration. """
 
-		with open(os.path.dirname(os.path.abspath(__file__)) + '/../configuration/config.json') as confs:
-			self.confs = json.loads(confs.read())
+        with open(os.path.dirname(os.path.abspath(__file__)) + '/../configuration/config.json') as confs:
+            self.confs = json.loads(confs.read())
 
-	def get_ip_addr(self):
-		""" Load the configuration. """
+    def get_ip_addr(self):
+        """ Load the configuration. """
 
-		s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-		s.connect(("8.8.8.8", 80))
-		ipaddr = s.getsockname()[0]
-		s.close()
-  
-		return ipaddr
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ipaddr = s.getsockname()[0]
+        s.close()
+
+        return ipaddr

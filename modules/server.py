@@ -47,47 +47,47 @@ from flask import Flask, request, Response
 from modules.AbstractServer import AbstractServer
 
 class server(AbstractServer):
-	""" Server/API class.
+    """ Server/API class.
 
-	Class for the classifier server/API.
-	"""
+    Class for the classifier server/API.
+    """
 
-	def predict(self, req):
-		""" Classifies an image sent via HTTP. """
+    def predict(self, req):
+        """ Classifies an image sent via HTTP. """
 
-		img = np.fromstring(req.data, np.uint8)
-		img = cv2.imdecode(img, cv2.IMREAD_COLOR)
+        img = np.fromstring(req.data, np.uint8)
+        img = cv2.imdecode(img, cv2.IMREAD_COLOR)
 
-		img = cv2.resize(img, (self.model.data.dim,
-							self.model.data.dim))
-		img = self.model.reshape(img)
+        img = cv2.resize(img, (self.model.data.dim,
+                               self.model.data.dim))
+        img = self.model.reshape(img)
 
-		return self.model.predict(img)
+        return self.model.predict(img)
 
-	def start(self):
-		""" Starts the server. """
+    def start(self):
+        """ Starts the server. """
 
-		app = Flask("AllJetsonNano")
+        app = Flask("AllJetsonNano")
 
-		@app.route('/Inference', methods=['POST'])
-		def Inference():
-			""" Responds to HTTP POST requests. """
+        @app.route('/Inference', methods=['POST'])
+        def Inference():
+            """ Responds to HTTP POST requests. """
 
-			prediction = self.predict(request)
+            prediction = self.predict(request)
 
-			if prediction == 1:
-				message = "Acute Lymphoblastic Leukemia detected!"
-				diagnosis = "Positive"
-			elif prediction == 0:
-				message = "Acute Lymphoblastic Leukemia not detected!"
-				diagnosis = "Negative"
+            if prediction == 1:
+                message = "Acute Lymphoblastic Leukemia detected!"
+                diagnosis = "Positive"
+            elif prediction == 0:
+                message = "Acute Lymphoblastic Leukemia not detected!"
+                diagnosis = "Negative"
 
-			resp = jsonpickle.encode({
-				'Response': 'OK',
-				'Message': message,
-				'Diagnosis': diagnosis
-			})
+            resp = jsonpickle.encode({
+                'Response': 'OK',
+                'Message': message,
+                'Diagnosis': diagnosis
+            })
 
-			return Response(response=resp, status=200, mimetype="application/json")
+            return Response(response=resp, status=200, mimetype="application/json")
 
-		app.run(host=self.helpers.get_ip_addr(), port=self.helpers.confs["agent"]["port"])
+        app.run(host=self.helpers.get_ip_addr(), port=self.helpers.confs["agent"]["port"])
