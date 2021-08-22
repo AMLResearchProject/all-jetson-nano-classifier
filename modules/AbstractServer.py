@@ -34,30 +34,30 @@ Contributors:
 from abc import ABC, abstractmethod
 
 class AbstractServer(ABC):
-	""" Server/API abstract class.
+    """ Server/API abstract class.
 
-	Abstract class for the classifier server/API.
-	"""
+    Abstract class for the classifier server/API.
+    """
 
-	def __init__(self, helpers, model, model_type):
-		"Initializes the AbstractServer object."
-		super().__init__()
+    def __init__(self, helpers, model, model_type):
+        "Initializes the AbstractServer object."
+        super().__init__()
 
-		self.helpers = helpers
-		self.confs = self.helpers.confs
+        self.helpers = helpers
+        self.confs = self.helpers.confs
 
-		self.model = model
-		self.model_type = model_type
+        self.model = model
+        self.model_type = model_type
 
-		self.helpers.logger.info("Server initialization complete.")
+        self.helpers.logger.info("Server initialization complete.")
 
 
-	@abstractmethod
-	def predict(self, req):
-		""" Classifies an image sent via HTTP. """
-		pass
+    @abstractmethod
+    def predict(self, req):
+        """ Classifies an image sent via HTTP. """
+        pass
 
-	@abstractmethod
-	def start(self, img_path):
-		""" Sends image to the inference API endpoint. """
-		pass
+    @abstractmethod
+    def start(self, img_path):
+        """ Sends image to the inference API endpoint. """
+        pass
